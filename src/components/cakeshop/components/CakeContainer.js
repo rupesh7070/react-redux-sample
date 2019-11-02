@@ -1,0 +1,45 @@
+import React, {Component} from 'react';
+
+import connect from "react-redux/lib/connect/connect";
+import buyCake from "../action/CakeAction";
+import buyIceCreame from "../action/IceCreameActions";
+
+
+class CakeContainer extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <div>
+                <h2> No of cakes {this.props.noOfCake}</h2>
+                <h2> No of IceCreame {this.props.noOfIceCreame}</h2>
+                <button onClick={this.props.buyCake}> Buy Cakes</button>
+                <button onClick={this.props.buyIceCreame}> Buy IceCream</button>
+            </div>
+        );
+    }
+
+}
+
+function mapStateToProps(state) {
+    return {
+        noOfCake: state.noOfCake,
+        noOfIceCreame: state.noOfIceCreame
+    }
+}
+
+
+function mapDispatchToProps(dispatch) {
+    return {
+        buyCake: () => dispatch(buyCake()),
+        buyIceCreame: () => dispatch(buyIceCreame())
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer);
+
+
+
