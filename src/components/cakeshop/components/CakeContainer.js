@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import connect from "react-redux/lib/connect/connect";
 import buyCake from "../action/CakeAction";
 import buyIceCreame from "../action/IceCreameActions";
+import CakeReducer from "../reducers/CakeReducer";
+import IceCreameReducer from "../reducers/IceCreameReducer";
 
 
 class CakeContainer extends Component {
@@ -24,9 +26,10 @@ class CakeContainer extends Component {
 }
 
 function mapStateToProps(state) {
+    debugger
     return {
-        noOfCake: state.noOfCake,
-        noOfIceCreame: state.noOfIceCreame
+        noOfCake: state.cake.noOfCake,
+        noOfIceCreame: state.ice.noOfIceCreame
     }
 }
 
