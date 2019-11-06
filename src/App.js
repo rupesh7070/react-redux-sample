@@ -12,6 +12,8 @@ import BookPage from "./components/bookProject/components/BookPage";
 import Home from "./components/home/Home";
 import Error from "./components/home/Error";
 import Navigation from "./components/home/Navigation";
+import Courses from "./components/pluralSightProject/Courses";
+import CounterMath from "./components/pluralSightProject/CounterMath";
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
                     <Route path="/cake" component={CakeContainer}/>
                     <Route path="/book" component={BookPage}/>
                     <Route path="/agGrid" component={AgGridExample}/>
+                    <Route path="/course" component={Courses}/>
+                    <Route path="/play" component={CounterMath}/>
                     <Route component={Error}></Route>
                 </Switch>
             </BrowserRouter>

@@ -10,6 +10,8 @@ class Navigation extends Component {
                 <NavLink to="/cake"> Cake </NavLink>
                 <NavLink to="/book"> Book </NavLink>
                 <NavLink to="/agGrid"> Ag-Grid </NavLink>
+                <NavLink to="/course"> Courses </NavLink>
+                <NavLink to="/play"> Play Area </NavLink>
             </div>
         );
     }

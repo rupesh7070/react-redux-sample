@@ -19,7 +19,7 @@ class Counter extends React.Component {
         console.log("calling render")
         return (
             <div>
-                <button className="btn btn-dark" onClick={() => this.incrementCounter()}>Increment by {this.props.incrementBy}</button>
+                <button className="btn" onClick={() => this.incrementCounter()}>Increment by {this.props.incrementBy}</button>
                 <label>{this.state.count}</label>
             </div>)
     }
