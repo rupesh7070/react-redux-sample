@@ -1,30 +1,42 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import connect from "react-redux/lib/connect/connect";
+import increaseCounterActionCreater from "./CounterMathAction";
 
 class CounterMath extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
-            count: 1
+            localCount: 0
         }
-        this.increase = this.increase.bind(this)
+        this.incrementLocalState = this.incrementLocalState.bind(this)
     }
-    increase() {
+
+    incrementLocalState() {
         this.setState({
-            count: this.state.count + 1
+            localCount: this.state.localCount + 1
         })
     }
 
     render() {
         return (
             <div>
-                <h1 onClick={this.increase}> CLick to increment {this.state.count}</h1>
+                <h1 onClick={this.props.increase}> CLick to increment from redux {this.props.count}</h1>
+                <h1 onClick={this.incrementLocalState}> CLick to increment from local state {this.state.localCount}</h1>
             </div>
         );
     }
 }
 
-CounterMath.propTypes = {};
+function mapStateToProps(state) {
+    return {
+        count: state.mathCount.count
+    }
+}
 
-export default CounterMath;
+function mapDispatchToProps(dispatch) {
+    return {
+        increase: () => dispatch(increaseCounterActionCreater())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CounterMath);
